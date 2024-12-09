@@ -50,3 +50,17 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+The worst-case asymptotic time complexity of my implementation would be $O(n^3)$. The reason for this is when breaking down the implementation, the random start function needs to generate a random route by shuffling an array of size n. This has a complexity of $O(n)$ due to the fact that it needs to iterate through the array in order to preform the swaps. Next the calculate route function computes the total distance of a given route. The route has a length of n so once the function iterates through the route, we receive a time complexity of $O(n)$. Next the required 2-opt swap function focuses on creating a new route by slicing and reversing pieces of the origional route. Both these operations have a complexity of $O(n)$. Finally within the main functionality of this program, the while loop continues as long as improvements can be made. The outer loop runs for each city so for $O(n)$ time. The inner loop also runs for this sae time, because it fruns for each possible swap. Each swap that happens, requires the creation of a new route and then calculating its distance, which also takes $O(n)$ time. Therefore, the nested loops have a time complexity of $O(n^3)$. Once we combine all the components this is where we get our final worst time complexity of $O(n^3)$. The memory complexity worst case would be different. It would be $O(n^2)$ because the input distance matrix is n*n, which requires $O(n^2)$ space. Then the route array and the temporary array in the 2-opt both rewuire $O(n)$ space. The functions themselves, such as the random start, route calculation, and the two opt itself don't use additional space other than from their constant memory used for the inputs and outputs. Once we combine these, we see that the worst memory complexity would be $O(n^2)$.
+
+
+These are the sources that I used to help get a further explanation of this process. I also communicated with Collin and Nolan about how to approach this problem, getting an idea of where to start. 
+
+https://www.youtube.com/watch?v=SwwberV8CT0
+https://en.wikipedia.org/wiki/2-opt
+https://slowandsteadybrain.medium.com/traveling-salesman-problem-ce78187cf1f3
+
+I certify that I have listed all sources used to complete this exercise, including the use
+of any Large Language Models. All of the work is my own, except where stated
+otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is
+suspected, charges may be filed against me without prior notice.
